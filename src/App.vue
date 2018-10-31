@@ -1,25 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+  <b-container id="app">
+    <b-row>
+      <mvp-picker @addMVP="onAddMVP"/>
+    </b-row>
+  </b-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
+import MVPPicker from '@/components/MVPPicker.vue';
 
-@Component({
-  components: {
-    HelloWorld
+const App = Vue.extend({
+ name: 'tracker',
+ components: {
+    'mvp-picker': MVPPicker
   }
 })
-export default class App extends Vue {}
+
+export default App
+// export default class App extends Vue {
+//   onAddMVP() {
+//     console.log('hey')
+//   }
+// }
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
